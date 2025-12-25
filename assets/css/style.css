@@ -1,710 +1,690 @@
+/*** RESET + BASE ***/
+
 * {
-  padding: 0;
   margin: 0;
-  box-sizing: border;
-  font-family: "Poppins", sans-serif;
-  text-decoration: none;
-  list-style: none;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
-/* Home page */
-
-.banner {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  color: #111;
 }
 
-.banner video {
-  position: absolute;
+/*** NAVBAR ***/
+
+.main-nav {
+  position: fixed;
   top: 0;
   left: 0;
-  object-fit: cover;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100vh;
-  background-image: linear-gradient(rgba(1, 0, 5, 0.3), rgba(4, 1, 17, 0.3));
-}
-
-nav {
-  width: 100%;
-  position: fixed;
-  background: white;
-  box-shadow: 15px 15px 30px rgba(0, 0, 0, 15%);
+  height: 80px;
+  padding: 0 70px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
-}
-
-nav .logo {
-  display: flex;
-  width: 60px;
-  margin: 2vh;
-  margin-left: 5%;
-}
-
-nav ul li {
-  list-style: none;
-  display: inline-block;
-  margin-left: 40px;
-}
+/* .main-nav img {
+  height: 48px;
+} */
 
 .navbar {
-  display: block;
-  margin-right: 8vh;
+  display: flex;
+  gap: 28px;
+  list-style: none;
 }
 
 .navbar a {
-  color: rgb(5, 5, 5);
-  font-size: 18px;
-  padding: 15px 12px;
-  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: none;
-  transition: ease 0.4s;
+  transition: color 0.3s ease;
 }
 
-.icons {
-  background-color: #101010;
+.navbar a:hover {
+  color: #c9a24d;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" NaN;
+/*** HERO / BANNER ***/
+
+.banner {
+  min-height: 100vh;
+  padding-top: 80px; /* חשוב – גובה הנאב */
+  /* background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.35)),
+    url("https://israel.travel/wp-content/uploads/2019/03/negev-insdie-min.jpg") center / cover no-repeat; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  font-size: 17px;
-}
+/*** HERO CONTENT ***/
 
 .title {
-  text-decoration: none;
-  font-size: 4vh;
-  color: rgb(255, 255, 255);
-  padding: 14px 17px;
-  margin-top: 25vh;
-  text-align: center;
-  vertical-align: center;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
 .title h1 {
-  font-size: 10vh;
-  text-shadow: 2px black;
-  transition: ease 0.3s;
+  font-weight: 800;
+  font-size: 64px;
+  letter-spacing: -0.5px;
+  text-transform: none;
+  line-height: 1.1;
 }
 
-.title h1:hover {
-  color: transparent;
-  -webkit-text-stroke: 1px white;
+.title p {
+  font-size: 20px;
+  margin: 18px 0;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 20;
+p {
+  font-weight: 400;
+  line-height: 1.8;
 }
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  opacity: 0.9;
+}
+
+.newstext h6 {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+
+/*** CTA BUTTON ***/
 
 .button {
   display: inline-block;
-  position: static;
-  font-size: 12px;
-  padding: 10px 30px;
-  color: rgb(21, 74, 74);
-  box-shadow: -1px 3px 3px 0 rgba(80, 80, 80, 0.2);
-  background-color: white;
-  border-radius: 20px;
+  margin-top: 35px;
+  padding: 16px 42px;
+  border-radius: 40px;
+  background: #c9a24d;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  flex-wrap: wrap;
-  transition: all 0.3ms ease;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-  color: white;
-  background-color: #d9d4d4;
-  box-shadow: -1px 6px 10px 0 rgba(120, 60, 20, 0.2);
-  padding: 10px 30px;
+  background: #e1b860;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* Services */
+/*** ABOUT ***/
 
-.text h2 {
-  font-size: 40px;
-  font-weight: 650;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  line-height: 2;
+.container {
+  padding: 120px 80px;
+  background: #f7f7f7;
+}
+
+.container .text {
+  max-width: 800px;
+  margin: auto;
   text-align: center;
 }
 
-.rowitems {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
-  gap: 85px;
-  align-items: center;
-  text-align: center;
-  margin-top: 25px;
-  margin-left: 350px;
-  margin-right: 350px;
-  margin-bottom: 1px;
-  gap: 2px;
-}
-
-.container-box {
-  width: 150px;
+.container h2 {
+  font-size: 36px;
   margin-bottom: 20px;
-  height: 234px;
-  border: 1px solid #d3d3d3;
-  border-radius: 5px;
-  padding: 10px;
-  transition: all 0.7s ease 0s; 
-  cursor: pointer;
 }
 
-.container-image img {
-  height: 50px;
-  width: 50px;
-  padding: 10px;
-  margin-bottom: 15px;
-}
-
-.container-box h4 {
-  font-size: 20px;
-  margin-bottom: 5px;
-  font-weight: 550;
-}
-
-.container-box p {
+.container p {
   font-size: 16px;
-  color: #808080;
+  line-height: 1.9;
+  color: #444;
 }
 
-.container-box:hover {
-  transform: translateX(3px);
-  box-shadow: 5px 20px 50px rgba(78, 78, 78, 0.1);
-  border: 1px solid transparent;
-  border-radius: 0px;
+/*** INTERESTS ***/
+
+.interests {
+  padding: 120px 80px;
+  text-align: center;
 }
 
-/* Packages */
+.interests h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
+}
 
-.package {
+.interest-grid {
   display: grid;
-  padding: 10px;
-  gap: 2px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.package2 {
+.interest-card {
+  padding: 50px 35px;
+  border-radius: 22px;
+  /* background: #fafafa; */
+  background: rgb(201, 162, 77);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+
+  text-align: left;
+  transition: all 0.4s ease;
+}
+
+.interest-card span {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #c9a24d;
+}
+
+.interest-card h3 {
+  font-size: 24px;
+  margin: 15px 0;
+}
+
+.interest-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.interest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0,0,0,.15);
+}
+
+/*** FOOTER ***/
+
+
+.footer {
+  background: #191919;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/** VIDEO **/
+
+.video-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+   /* background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+    url("https://israel.travel/wp-content/uploads/2019/03/negev-insdie-min.jpg")
+    center / cover no-repeat; */
+}
+
+.video-hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* שכבת כהות / זהב עדינה */
+.video-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.65)
+  );
+  z-index: 2;
+}
+
+/* הטקסט מעל הוידאו */
+.video-hero .title {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+}
+
+.overlay {
+  background: linear-gradient(
+    rgba(10,20,40,0.45),
+    rgba(60,40,10,0.6)
+  );
+}
+
+
+@media (max-width: 768px) {
+  .video-hero video {
+    display: none;
+  }
+
+  .video-hero {
+    background: url("../files/hero-mobile.jpg") center / cover no-repeat;
+  }
+}
+
+/* split layout */
+.split {
   display: grid;
-  padding: 10px;
-  gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
+/* video */
+.media video {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    margin-top: 40px;
+  }
+}
+
+
+
+/** **/
+
+.about-slideshow {
+  position: relative;
+  min-height: 85vh; /* קצת פחות גבוה */
+  background: #000;
+  overflow: hidden;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* שכבת כהות */
+.about-slideshow .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* פריסת שני טורים */
+.about-layout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  height: 100%;
+}
+
+/* צד שמאל – תמונות */
+.about-image {
+  width: 45%; /* מקטין את התמונה */
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s ease-in-out;
+}
+
+/* צד ימין – תוכן */
+.about-content {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 80px 100px 80px 80px; /* פחות דחיפה ימינה */
+  
+}
+
+.about-content .text {
+  max-width: 520px;
+  color: #fff;
+}
+
+.about-content .signature:first-of-type {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+
+
+/* טקסט */
+.about-content h2 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+/* שורת חתימה */
+.about-content .signature {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  opacity: 0.95;
+}
+
+/* הערת שוליים */
+.about-content .note {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 28px;
+}
+
+/* רספונסיב */
+@media (max-width: 900px) {
+  .about-layout {
+    flex-direction: column;
+  }
+
+  .about-image,
+  .about-content {
+    width: 100%;
+  }
+
+  .about-image {
+    height: 38vh;
+  }
+
+  .about-content {
+    padding: 45px 25px;
+  }
+}
+
+/* ===== ABOUT: CENTERED + PREMIUM CARD (override) ===== */
+
+.about-layout{
+  justify-content: center;              /* מרכז את התוכן */
+}
+
+.about-image{
+  display: none;                         /* מבטל את הטור השמאלי כדי שהתוכן לא יברח ימינה */
+}
+
+.about-content{
+  width: 100%;
+  padding: 90px 24px;                    /* ריווח יפה מסביב */
+  justify-content: center;               /* מרכז אופקית */
+}
+
+/* כרטיס על התמונה */
+.about-content .text{
+  max-width: 1200px;                      /* מרוכז יותר */
+  padding: 48px 44px;
+  border-radius: 22px;
+  background: rgba(0,0,0,0.38);          /* קריא + יוקרתי */
+  backdrop-filter: blur(8px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+}
+
+/* כותרת ראשית – חזקה יותר */
+.about-content .signature:first-of-type{
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 22px 0;
+}
+
+/* טקסט */
+.about-content p{
+  font-size: 18px;
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+/* "Deeply Rooted..." ככותרת משנית */
+.about-content .signature{
+  margin-top: 26px;
+  margin-bottom: 14px;
+  font-size: 22px;
+  font-weight: 650;
+  opacity: 0.98;
+}
+
+/* הערת שוליים */
+.about-content .note{
+  margin-top: 18px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* מעט כהות נוספת לרקע כדי לשפר קריאות */
+.about-slideshow .overlay{
+  background: rgba(0,0,0,0.50);
+}
+
+/* מובייל */
+@media (max-width: 900px){
+  .about-content{
+    padding: 60px 18px;
+  }
+  .about-content .text{
+    padding: 30px 22px;
+  }
+  .about-content .signature:first-of-type{
+    font-size: 34px;
+  }
+}
+
+
+/** the last section**/
+
+/* =========================
+   LAST SECTIONS: TOURS + DESTINATIONS + CONTACT
+   Paste at END of style.css
+   ========================= */
+
+/* Titles reused (Our Tours / Top Destinations) */
 .package-title {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .package-title h2 {
-  font-size: 30px;
-  font-weight: 650;
-  padding-bottom: 10px;
-  line-height: 2;
+  font-size: 42px;
+  letter-spacing: -0.4px;
 }
 
-.package-content {
-  border-radius: 15px;
-  padding: 25px;
-  padding-right: 50px;
-  display: flex;
-  background: linear-gradient(#445056, #47addd 45%, #fff 45%, #fff 100%);
-  box-shadow: 10px 10px 15px #3b3737;
-  margin-top: 5px;
-  margin-left: 149px;
-  margin-right: 149px;
-  margin-bottom: 1px;
-  gap: 15px;
+/* --- TOURS (cards) --- */
+.package2 {
+  padding: 120px 80px;
+  background: #ffffff;
 }
 
 .package2-content {
-  border-radius: 15px;
-  padding: 25px;
-  padding-right: 50px;
-  display: flex;
-  background: linear-gradient(#445056, #47addd 45%, #fff 45%, #fff 100%);
-  box-shadow: 10px 10px 15px #3b3737;
-  margin-top: 5px;
-  margin-left: 149px;
-  margin-right: 149px;
-  margin-bottom: 1px;
-  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-.pack4-content {
-  background-color: #fdf5f5;
-  border-radius: 5px;
-  background-image: url("https://akam.cdn.jdmagicbox.com/images/icontent/flight/landing-page_3jan-2x.png");
-  padding: 25px;
-  padding-right: 50px;
-  display: flex;
-  margin-top: 5px;
-  margin-left: 199px;
-  margin-right: 199px;
-  margin-bottom: 1px;
-  gap: 15px;
+/* a.box should look like a card (not a blue link) */
+.package2-content .box {
+  display: block;
+  padding: 38px 34px;
+  border-radius: 22px;
+  background: #fafafa;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
-.pack5-content {
-  background-color: #fdf5f5;
-  border-radius: 15px;
-  background-image: url("https://images.pexels.com/photos/1122640/pexels-photo-1122640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  box-shadow: 10px 10px 15px #3b3737;
-  padding: 25px;
-  padding-right: 50px;
-  display: flex;
-  margin-top: 5px;
-  margin-left: 149px;
-  margin-right: 149px;
-  margin-bottom: 1px;
-  gap: 15px;
+.package2-content .box h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
-.text-block {
-  margin-bottom: 40px;
-  color: #fff;
-  position: absolute;
-  margin-bottom: 150px;
-  text-align: left;
-}
-
-.image {
-  margin-top: 50px;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  cursor: pointer;
-  filter: brightness(95%);
-}
-
-.image img {
-  width: 100%;
-  height: 200px;
-  border-radius: 15px;
-}
-
-.image h3 {
-  color: white;
-  position: absolute;
+.package2-content .box p {
   font-size: 15px;
-  font-weight: 500;
-  text-align: center;
-  bottom: 10px;
-  right: 25px;
+  color: #555;
+  margin: 0;
+  line-height: 1.7;
 }
 
-.image:hover {
-  filter: brightness(120%);
-  transform: scale(1.03);
+.package2-content .box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.14);
+  border-color: rgba(201,162,77,0.45);
 }
 
-/* Button */
-
-.btn {
-  display: inline-block;
-  padding: 10px;
-  width: 140px;
-  font-weight: 500px;
-  color: rgb(0, 0, 0);
-  background-color: whitesmoke;
-  margin-top: 30px;
-  border-radius: 10px;
-  transition: ease 0.3s;
-}
-.btn a{
-  font-size: medium;
-  font-weight: 600;
-color: black;
-}
-.btn:hover{
-  box-shadow: 5px 5px 10px #3b3737;
+/* small accent line */
+.package2-content .box::before{
+  content:"";
+  display:block;
+  width: 48px;
+  height: 3px;
+  background: #c9a24d;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  opacity: 0.9;
 }
 
-/* Locations */
+/* --- DESTINATIONS (chips/cards) --- */
+.locations {
+  padding: 120px 80px;
+  background: #f7f7f7;
+}
 
 .location-content {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
 }
 
 .col-content {
-  position: relative;
-  filter: brightness(95%);
-  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-}
-
-.col-content img {
-  margin-bottom: 10px;
-  height: 300px;
-  border-radius: 27px;
-  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .col-content h5 {
-  position: absolute;
   font-size: 15px;
-  color: white;
-  font-weight: 500;
-  left: 20px;
-  bottom: 105px;
-  cursor: pointer;
-}
-
-.col-content p {
-  position: absolute;
-  font-size: 10px;
-  color: white;
-  left: 20px;
-  bottom: 80px;
-  cursor: pointer;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
 }
 
 .col-content:hover {
-  filter: brightness(120%);
-  transform: scale(1.03);
-  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+  border-color: rgba(201,162,77,0.45);
 }
 
-/* Newsletter */
-
+/* --- CONTACT (newsletter style) --- */
 .newsletter {
+  padding: 110px 80px;
+  background: #191919;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.newsletter .newstext h2 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.newsletter .newstext p {
+  color: rgba(255,255,255,0.78);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.newsletter .send form{
   display: flex;
+  gap: 12px;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
 }
 
-.newstext h2 {
-  margin-top: 100px;
-  font-size: 38px;
-}
-
-.newstext p {
-  font-size: 20px;
-  color: #4c4c4c;
-}
-
-.newsletter form {
-  margin-top: 100px;
-  width: 100%;
-  position: relative;
-}
-
-.newsletter form input:first-child {
-  display: inline-block;
-  width: 300px;
-  font-size: 17px;
+.newsletter input[type="email"]{
+  width: min(380px, 100%);
+  padding: 14px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
   outline: none;
-  border: none;
-  border-radius: 20px;
-  padding: 20px 150px 20px 30px;
-  box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
 }
 
-.newsletter form input:last-child {
-  display: inline-block;
-  position: absolute;
-  outline: none;
-  border: 2px solid transparent;
-  border-radius: 20px;
-  color: white;
-  background-color: #191919;
-  padding: 14px 30px;
+.newsletter input[type="email"]::placeholder{
+  color: rgba(255,255,255,0.6);
+}
+
+.newsletter input[type="submit"]{
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 0;
+  background: #c9a24d;
+  color: #111;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 17px;
-  font-weight: 450;
-  top: 6px;
-  right: 6px;
-  transition: ease 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.newsletter form input:last-child:hover {
-  border: 2px solid rgb(21, 74, 74);
-  background-color: white;
-  color: rgb(21, 74, 74);
+.newsletter input[type="submit"]:hover{
+  background: #e1b860;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
 }
 
-/* Footer */
+/* --- Responsive --- */
+@media (max-width: 900px){
+  .package2, .locations, .newsletter{
+    padding: 80px 22px;
+  }
 
-.footer {
-  background: inherit;
-  margin-top: 80px;
-  background-color: #191919;
-}
+  .package2-content{
+    grid-template-columns: 1fr;
+  }
 
-.foot {
-  padding: 20px 0;
-}
+  .newsletter{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.footlinks h4 {
-  margin-top: 30px;
-  font-size: 20px;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-.footlinks h4::before {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 70px;
-  left: 0;
-  bottom: -7px;
-  background: white;
-}
-
-.footlinks ul li {
-  margin-bottom: 15px;
-}
-
-.footlinks ul li a {
-  font-size: 17px;
-  color: #dddddd;
-  display: block;
-  transition: ease 0.3s;
-}
-
-.footlinks ul li a:hover {
-  transform: translate(6px);
-  color: white;
-}
-
-.social a {
-  font-size: 25px;
-  margin: 4px;
-  height: 40px;
-  width: 40px;
-  color: rgb(21, 74, 74);
-  background-color: white;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  transition: ease 0.3s;
-}
-
-.social a:hover {
-  transform: scale(1.2);
-}
-
-.end {
-  text-align: center;
-  padding-top: 60px;
-  padding-bottom: 12px;
-}
-
-.end p {
-  font-size: 15px;
-  color: white;
-  letter-spacing: 1px;
-  font-weight: 300;
-}
-
-/* About Us */
-
-.aboutbody {
-  background-color: white;
-}
-
-.about {
-  width: 100%;
-  padding: 110px 0px;
-}
-
-.about img {
-  position: static;
-  border-radius: 55%;
-  height: auto;
-  width: 200px;
-}
-
-.abt-text {
-  width: 900px;
-}
-
-.abt-text h1 {
-  font-size: 50px;
-  color: #191919;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.abt-text h1 span {
-  letter-spacing: 1px;
-}
-
-.abt-text p {
-  padding: 10px;
-  margin-right: 150px;
-  text-align: justify;
-  color: black;
-  font-size: 15px;
-  margin-bottom: 45px;
-  line-height: 30px;
-  letter-spacing: 1px;
-}
-
-.main {
-  width: 1130px;
-  max-width: 95%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.connectbtn {
-  display: inline-block;
-  background-color: #191919;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-  padding: 13px 30px;
-  border-radius: 20px;
-  transition: ease 0.4s;
-  border: 2px solid transparent;
-  letter-spacing: 1px;
-}
-
-.connectbtn:hover {
-  background-color: transparent;
-  font-size: 18px;
-  color: #191919;
-  font-weight: bold;
-  border: 2px solid green;
-}
-
-.connect-section {
-  margin-top: 26px;
-}
-
-.social-icons a {
-  height: 40px;
-  width: 40px;
-  margin: 4px;
-  font-size: 30px;
-  color: #101010;
-  background-color: white;
-  border-radius: 20px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  transition: ease 0.3s;
-}
-
-.social-icons a:hover {
-  transform: scale(1.2);
-}
-
-/* Contact Us */
-
-.contactbody {
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.contact {
-  padding: 110px 20%;
-  height: 100%;
-  min-height: 100vh;
-}
-
-.contact h1 {
-  text-decoration: wavy;
-  font-size: 50px;
-  color: #191919;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.contact h1 span {
-  letter-spacing: 1px;
-}
-
-.contact p {
-  padding: 10px;
-  margin-right: 150px;
-  text-align: justify;
-  color: black;
-  font-size: 15px;
-  margin-bottom: 45px;
-  line-height: 30px;
-  letter-spacing: 1px;
-}
-
-.contact-form {
-  grid-template-columns: auto auto auto;
-  gap: 5%;
-  padding: 35px;
-  margin-top: 50px;
-  margin-left: 35px;
-  border-radius: 10px;
-  font-size: 12px;
-  color: black;
-  background-color: white;
-  box-shadow: 5px 5px 10px #3b3737;
-  margin-right: 40%;
-}
-
-.contact-form form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid black;
-  outline: none;
-  font-size: 15px;
-  color: black;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-
-.contact-form form .submit-btn {
-  display: inline-block;
-  background-color: #313131;
-  font-size: 27px;
-  color: white;
-  font-weight: 600px;
-  border: 2px solid transparent;
-  border-radius: 40px;
-  width: 220px;
-  cursor: pointer;
-  transition: ease 0.2s;
-}
-
-.contact-form form .submit-btn:hover {
-  border: 2px solid green;
-  font-size: 27px;
-  color: #191919;
-  font-weight: 600px;
-  background-color: transparent;
+  .newsletter .send form{
+    justify-content: center;
+  }
 }
