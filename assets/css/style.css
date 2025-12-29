@@ -25,34 +25,59 @@ body {
   height: 80px;
   padding: 0 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* center the nav horizontally */
   align-items: center;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(8px);
   z-index: 1000;
 }
 
-/* .main-nav img {
-  height: 48px;
-} */
+/* Brand (logo) sits visually at the left while nav remains centered */
+.main-nav .brand {
+  position: absolute;
+  left: 90px; /* increased left offset for breathing room */
+  top: 0;
+  bottom: 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+} 
+
+.main-nav .logo {
+  height: 56px; /* slightly larger logo */
+  display: block;
+}
+
+.main-nav .brand .brand-text {
+  color: #c9a24d;
+  font-weight: 700;
+  font-size: 11px;
+  margin-left: 6px;
+  text-decoration: none;
+  font-family: inherit;
+} 
 
 .navbar {
   display: flex;
-  gap: 28px;
+  gap: 40px; /* increased gap between items */
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar a {
   color: #fff;
-  font-size: 15px;
+  font-size: 17px; /* slightly larger navigation text */
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
+  padding: 6px 4px; /* touch-friendly spacing */
 }
 
 .navbar a:hover {
   color: #c9a24d;
-}
+} 
 
 /*** HERO / BANNER ***/
 
@@ -83,6 +108,26 @@ body {
   letter-spacing: -0.5px;
   text-transform: none;
   line-height: 1.1;
+  color: #c9a24d; /* match the CTA button gold */
+  /* text-only shadow so the effect hugs characters */
+  text-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+  padding: 8px 14px;
+  border-radius: 10px;
+  /* background: rgba(201,162,77,0.05); */
+  /* removed the outer box-shadow as requested */
+}
+
+.title h1:hover {
+  transform: translateY(-4px);
+  text-shadow: 0 10px 28px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 900px) {
+  .title h1 {
+    font-size: 42px;
+  }
 }
 
 .title p {
@@ -136,23 +181,65 @@ p {
 .container {
   padding: 120px 80px;
   background: #f7f7f7;
+  border-radius: 14px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.06);
+  overflow: visible;
+}
+
+/* highlight variant used on the split section */
+.container.highlight {
+  padding: 72px 60px;
+  border-radius: 14px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.06);
 }
 
 .container .text {
   max-width: 800px;
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
-.container h2 {
+/* small label / pre-title */
+.container.highlight .text p:first-of-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: #6e6e6e;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* main heading for the highlight */
+.container.highlight h2 {
   font-size: 36px;
   margin-bottom: 20px;
+  color: #c9a24d; /* match CTA gold */
+  font-weight: 800;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: inline-block;
+  /* padding: 6px 10px; */
+  border-radius: 8px;
+  background: rgba(201,162,77,0.04);
 }
 
 .container p {
   font-size: 16px;
   line-height: 1.9;
   color: #444;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 40px 24px;
+  }
+
+  .container.highlight {
+    padding: 28px 20px;
+  }
+
+  .container.highlight h2 {
+    font-size: 30px;
+  }
 }
 
 /*** INTERESTS ***/
@@ -284,6 +371,32 @@ p {
   .video-hero {
     background: url("../files/hero-mobile.jpg") center / cover no-repeat;
   }
+
+  /* Nav responsive tweaks */
+  .main-nav {
+    padding: 0 20px;
+  }
+
+  /* Keep brand close to the left padding on small screens */
+  .main-nav .brand {
+    left: 24px; /* slightly more offset for balance */
+  }
+
+  .main-nav .logo {
+    height: 44px; /* a touch larger on mobile */
+  }
+
+  .main-nav .brand .brand-text {
+    display: none;
+  }
+
+  .navbar {
+    gap: 22px; /* more breathing room between items */
+  }
+
+  .navbar a {
+    font-size: 16px; /* slightly larger nav text for readability */
+  }
 }
 
 /* split layout */
@@ -294,12 +407,27 @@ p {
   align-items: center;
 }
 
-/* video */
-.media video {
+/* media slideshow area (replaces inline video) */
+.media {
   width: 100%;
+  min-height: 420px;
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,0.25);
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.9s ease-in-out, transform 0.5s ease;
+}
+
+.media:hover {
+  transform: scale(1.005);
+}
+
+@media (max-width: 900px) {
+  .media {
+    min-height: 220px;
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -318,50 +446,127 @@ p {
 
 .about-slideshow {
   position: relative;
-  min-height: 85vh; /* קצת פחות גבוה */
-  background: #000;
-  overflow: hidden;
-    background-size: cover;
+  /* use the same soft site background as other containers */
+  padding: 60px 48px;
+  background: #f7f7f7;
+  overflow: visible;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* שכבת כהות */
+/* overlay removed for a light background */
 .about-slideshow .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
-}
+  display: none;
+} 
 
-/* פריסת שני טורים */
+/* two-column layout (image left, content right) */
 .about-layout {
   position: relative;
   z-index: 2;
   display: flex;
-  height: 100%;
+  align-items: stretch;
+  gap: 60px; /* breathing room between image and content */
+  min-height: 65vh; /* better visual balance */
 }
 
-/* צד שמאל – תמונות */
+/* image column (left) */
 .about-image {
-  width: 45%; /* מקטין את התמונה */
+  width: 55%;
+  min-height: 460px;
   background-size: cover;
   background-position: center;
-  transition: background-image 1.5s ease-in-out;
+  transition: background-image 1.5s ease-in-out, transform 0.5s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* צד ימין – תוכן */
+/* subtle zoom on hover for a premium feel */
+.about-image:hover {
+  transform: scale(1.02);
+}
+
+/* gentle gradient overlay on the image side (keeps text readable if overlay overlaps) */
+.about-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.02) 40%);
+  pointer-events: none;
+}
+
+/* content column (right) */
 .about-content {
-  width: 50%;
+  width: 45%;
   display: flex;
   align-items: center;
-  padding: 80px 100px 80px 80px; /* פחות דחיפה ימינה */
-  
+  padding: 80px 60px;
+  border-radius: 8px;
 }
 
 .about-content .text {
   max-width: 520px;
-  color: #fff;
+  color: #111; /* match site text color */
+  font-family: inherit;
+}  
+
+/* stronger, more prominent section title (match site section headings) */
+.about-content .about-title {
+  font-size: 36px; /* match .container h2 */
+  font-weight: 800;
+  margin-bottom: 20px; /* consistent with other section headings */
+  line-height: 1.1;
+  color: #111; /* match site headings */
+  letter-spacing: 0px;
+} 
+
+/* intro paragraph under About section */
+.about-content .intro {
+  font-size: 18px; /* consistent with other body text */
+  color: #333;
+  margin-bottom: 22px;
+  opacity: 1;
+} 
+
+/* slightly tighter paragraph rules for better readability */
+.about-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #444;
+} 
+
+/* responsive: stack and reduce sizes on narrower viewports */
+@media (max-width: 900px) {
+  .about-layout {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .about-image {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 10px;
+    order: 1;
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 36px 20px;
+    border-left: none;
+    border-top: 4px solid rgba(201,162,77,0.08);
+    order: 2;
+  }
+
+  .about-content .about-title {
+    font-size: 32px;
+  }
+
+  .about-content p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 }
 
 .about-content .signature:first-of-type {
@@ -374,13 +579,13 @@ p {
 
 /* טקסט */
 .about-content h2 {
-  font-size: 44px;
+  font-size: 36px;
   font-weight: 800;
   margin-bottom: 25px;
-}
+} 
 
 .about-content p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.85;
   margin-bottom: 22px;
 }
@@ -437,15 +642,14 @@ p {
   justify-content: center;               /* מרכז אופקית */
 }
 
-/* כרטיס על התמונה */
+/* card variant for centered layout — use white card to match site */
 .about-content .text{
   max-width: 1200px;                      /* מרוכז יותר */
   padding: 48px 44px;
   border-radius: 22px;
-  background: rgba(0,0,0,0.38);          /* קריא + יוקרתי */
-  backdrop-filter: blur(8px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-}
+  background: #ffffff;                    /* light card to match site */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+} 
 
 /* כותרת ראשית – חזקה יותר */
 .about-content .signature:first-of-type{
@@ -457,7 +661,7 @@ p {
 
 /* טקסט */
 .about-content p{
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.9;
   margin-bottom: 18px;
 }
@@ -478,9 +682,9 @@ p {
   opacity: 0.85;
 }
 
-/* מעט כהות נוספת לרקע כדי לשפר קריאות */
+/* no extra dark overlay for light sections */
 .about-slideshow .overlay{
-  background: rgba(0,0,0,0.50);
+  background: #0b0b0b0f;
 }
 
 /* מובייל */

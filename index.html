@@ -14,7 +14,10 @@
 
 <!-- NAVBAR -->
 <nav class="main-nav">
-  <!-- <img src="./assets/files/logo.png" class="logo" alt="Discover Israel"> -->
+  <a href="./index.html" class="brand">
+    <img src="./assets/files/logo.png" class="logo" alt="Discover Israel">
+    <span class="brand-text">Holylandgroup</span>
+  </a>
 
   <ul class="navbar">
     <li><a href="#home">Home</a></li>
@@ -75,7 +78,8 @@
 
 <section class="container highlight split">
   <div class="text">
-    <h2>Bespoke Boutique Tours</h2>
+    <p>Who We Are ... </p>
+    <h2>Holyland Group Travel - Bespoke Boutique Tours</h2>
 
     <p>
       We specialize in bespoke boutique tours that seamlessly blend tradition
@@ -89,11 +93,7 @@
     </p>
   </div>
 
-  <div class="media">
-    <video autoplay muted loop playsinline>
-      <source src="./assets/video/personalytours.mp4" type="video/mp4">
-    </video>
-  </div>
+  <div class="media" aria-hidden="false" role="img" aria-label="Gallery slideshow"></div> 
 </section>
 
 
@@ -105,7 +105,7 @@
     <div class="about-image"></div>
     <div class="about-content">
         <div class="text">
-        <p class="signature">Your Personal Travel Concierge</p>
+        <h2 class="about-title">Your Personal Travel Concierge</h2>
 
         <p>
             We aren't just a tour company, we are your personal travel concierge.<br>
@@ -207,8 +207,7 @@
     <div class="col-content"><h5>Jerusalem</h5></div>
     <div class="col-content"><h5>Tel Aviv</h5></div>
     <div class="col-content"><h5>Dead Sea</h5></div>
-    <div class="col-content"><h5>Galilee</h5></div>
-    <div class="col-content"><h5>Akko & Safed</h5></div>
+    <div class="col-content"><h5>Haifa</h5></div>
   </div>
 </section>
 
@@ -236,19 +235,20 @@
 </footer>
 <script>
   const images = [
-    "sea.jpeg",
-    // "sea2.jpeg",
-    "cotel.jpeg",
-    "cotel2.jpeg",
-    "tavlinim.jpeg",
-    "telavivyafo.jpeg",
-    "staff.jpeg",
-    "jafo.jpeg",
-    "heifa.jpeg"
+    "telaviv/tel-aviv.jpg",
+    "telaviv/architecture.jpg",
+    "jerusalem/israel.jpg",
+    "jerusalem/man.jpg",
+    "jerusalem/prayer.jpg",
+    "jerusalem/wall.jpg",
+    "dead-sea/dead-sea-3.jpg",
+    "dead-sea/dead-sea-4.jpg",
+    "haifa/israel.jpg",
   ];
 
   let current = 0;
-  const section = document.querySelector(".about-slideshow");
+//   const section = document.querySelector(".about-slideshow");
+  const section = document.querySelector(".media");
 
   function changeBackground() {
     section.style.backgroundImage = `url('./assets/pictuers/${images[current]}')`;
